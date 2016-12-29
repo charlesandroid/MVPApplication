@@ -2,7 +2,7 @@ package com.charles.common.factory;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 
 /**
@@ -26,7 +26,7 @@ public class DialogFactory {
     }
 
 
-    public Dialog createNotifacationDialog(Activity activity, String title, int icon, String notifacation, String btn, onClickListener onClickListener) {
+    public AlertDialog createNotifacationDialog(Activity activity, String title, int icon, String notifacation, String btn, onClickListener onClickListener) {
         AlertDialog alertDialog = new AlertDialog.Builder(activity)
                 .setTitle(title)
                 .setIcon(icon)
@@ -36,6 +36,12 @@ public class DialogFactory {
                     dialog.dismiss();
                 }).create();
         return alertDialog;
+    }
+
+    public ProgressDialog createProgressDialog(Activity activity, String message) {
+        ProgressDialog dialog = new ProgressDialog(activity);
+        dialog.setMessage(message);
+        return dialog;
     }
 
     public interface onClickListener {
