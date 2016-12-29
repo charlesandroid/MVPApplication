@@ -94,6 +94,13 @@ public class DownloadHelper {
         void onDownload(int code);
     }
 
+    /**
+     * body -> file -> 写入本地  返回file观察者
+     *
+     * @param body
+     * @param absFileName
+     * @return
+     */
     private Observable<File> convertFile(ResponseBody body, String absFileName) {
         File file = null;
         try {

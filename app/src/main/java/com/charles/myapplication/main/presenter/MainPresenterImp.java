@@ -1,8 +1,8 @@
 package com.charles.myapplication.main.presenter;
 
-import com.charles.common.network.DefaultData;
-import com.charles.common.network.Response;
-import com.charles.common.network.ResponseSubscriber;
+import com.charles.myapplication.network.DefaultData;
+import com.charles.myapplication.network.Response;
+import com.charles.myapplication.network.ResponseSubscriber;
 import com.charles.common.network.RetrofitUtil;
 import com.charles.common.network.TransformUtils;
 import com.charles.common.presenter.BasePresenterImp;

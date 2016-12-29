@@ -1,7 +1,7 @@
-package com.charles.common.network;
+package com.charles.myapplication.network;
 
 /**
- * com.charles.common.network.Response
+ * com.charles.myapplication.network.Response
  *
  * @author Just.T
  * @since 16/12/26

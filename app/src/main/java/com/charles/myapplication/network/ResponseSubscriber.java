@@ -1,4 +1,4 @@
-package com.charles.common.network;
+package com.charles.myapplication.network;
 
 import android.util.Log;
 
@@ -7,7 +7,7 @@ import com.charles.myapplication.BuildConfig;
 import rx.Subscriber;
 
 /**
- * com.charles.common.network.ResponseSubscriber
+ * com.charles.myapplication.network.ResponseSubscriber
  * 网络请求结果的Subscriber基类
  *
  * @author Just.T

@@ -1,4 +1,4 @@
-package com.charles.common.network;
+package com.charles.myapplication.network;
 
 /**
  * com.charles.common.network.domain.Data1

@@ -1,8 +1,8 @@
 package com.charles.myapplication.main;
 
 import com.charles.common.network.BaseHttpService;
-import com.charles.common.network.DefaultData;
-import com.charles.common.network.Response;
+import com.charles.myapplication.network.DefaultData;
+import com.charles.myapplication.network.Response;
 import com.charles.myapplication.main.bean.User;
 
 import retrofit2.http.GET;

@@ -21,7 +21,7 @@ public class IntentFactory {
     public static final int INSTALL = 3;
 
     /**
-     * 请求图库的intent
+     * 图库
      *
      * @return
      */
@@ -32,7 +32,7 @@ public class IntentFactory {
     }
 
     /**
-     * 请求摄像头的intent
+     * 摄像头
      *
      * @return
      */
@@ -41,7 +41,7 @@ public class IntentFactory {
     }
 
     /**
-     * 请求打电话的intent
+     * 打电话
      *
      * @return
      */
@@ -50,6 +50,12 @@ public class IntentFactory {
     }
 
 
+    /**
+     * 安装
+     *
+     * @param appPath
+     * @return
+     */
     public static Intent requestInstall(String appPath) {
         return new Intent().setDataAndType(Uri.fromFile(new File(appPath)),
                 "application/vnd.android.package-archive");
