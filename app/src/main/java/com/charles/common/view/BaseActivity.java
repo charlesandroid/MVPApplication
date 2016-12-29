@@ -132,14 +132,11 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     }
 
     private void showToastSafe(String str) {
-        if (mToast == null) {
-            mToast = Toast.makeText(this, str, Toast.LENGTH_SHORT);
-        } else {
+        if (mToast != null) {
             mToast.cancel();
-            mToast.setText(str);
         }
+        mToast = Toast.makeText(this, str, Toast.LENGTH_SHORT);
         mToast.show();
-
     }
 
     protected void log(String log) {

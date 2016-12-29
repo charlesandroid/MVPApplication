@@ -1,5 +1,6 @@
 package com.charles.myapplication.main.activity;
 
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
@@ -30,7 +31,14 @@ public class MainActivity extends BaseActivity<MainPresenterImp> implements IMai
     protected void initView() {
         MainFragment myFragment = new MainFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fl, myFragment).commit();
+        log("!!!!!!!!!!!!!!!!!!");
         mPresenter.test();
+        tvText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showToast("!!!!!!!");
+            }
+        });
 
     }
 

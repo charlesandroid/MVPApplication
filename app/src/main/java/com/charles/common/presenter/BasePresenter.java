@@ -9,5 +9,4 @@ package com.charles.common.presenter;
 public interface BasePresenter {
 
     void sendMessage(Object event);
-
 }
