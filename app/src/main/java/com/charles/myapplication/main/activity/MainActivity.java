@@ -25,16 +25,11 @@ public class MainActivity extends BaseActivity<MainPresenterImp> implements IMai
         tvText.setText(address);
     }
 
-    @Override
-    protected void initData() {
-
-    }
 
     @Override
     protected void initView() {
         MainFragment myFragment = new MainFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fl, myFragment).commit();
-        mPresenter.testRetrofit();
 
     }
 
