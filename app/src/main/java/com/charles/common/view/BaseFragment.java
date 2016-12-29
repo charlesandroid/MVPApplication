@@ -97,9 +97,12 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         super.onCreate(savedInstanceState);
         if (!viewCreated) {
             viewCreated = true;
-            mPresenter.initData();
+            initData();
         }
     }
+
+
+    protected abstract void initData();
 
 
     @Override

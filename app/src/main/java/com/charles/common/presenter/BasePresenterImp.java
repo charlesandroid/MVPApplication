@@ -24,13 +24,6 @@ public abstract class BasePresenterImp<V extends IBaseView> implements BasePrese
         this.view = view;
     }
 
-    public boolean checkActivityState() {
-        return activity != null && !activity.isFinishing();
-    }
-
-    public boolean isMainThread() {
-        return activity.getMainLooper().getThread().equals(Thread.currentThread());
-    }
 
     @Override
     public void sendMessage(Object event) {
@@ -42,5 +35,4 @@ public abstract class BasePresenterImp<V extends IBaseView> implements BasePrese
             Log.d(TAG, log);
         }
     }
-
 }

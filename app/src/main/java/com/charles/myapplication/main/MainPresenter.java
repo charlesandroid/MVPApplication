@@ -7,4 +7,5 @@ package com.charles.myapplication.main;
  * @since 16/12/27
  */
 public interface MainPresenter {
+    void test();
 }

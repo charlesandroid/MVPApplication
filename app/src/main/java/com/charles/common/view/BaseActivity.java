@@ -42,7 +42,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         setContentView(getContetView());
         mUnbind = ButterKnife.bind(this);
         initView();
-        mPresenter.initData();
     }
 
 
@@ -102,8 +101,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
 
     public void hideDialog(Dialog dialog) {
-        if (mPresenter.checkActivityState() && dialog != null && dialog.isShowing()) {
-            if (mPresenter.isMainThread()) {
+        if (checkActivityState() && dialog != null && dialog.isShowing()) {
+            if (isMainThread()) {
                 dialog.dismiss();
             } else {
                 runOnUiThread(dialog::dismiss);
@@ -113,8 +112,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     }
 
     public void showDialog(Dialog dialog) {
-        if (mPresenter.checkActivityState() && dialog != null && !dialog.isShowing()) {
-            if (mPresenter.isMainThread()) {
+        if (checkActivityState() && dialog != null && !dialog.isShowing()) {
+            if (isMainThread()) {
                 dialog.show();
             } else {
                 runOnUiThread(dialog::show);
@@ -123,8 +122,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     }
 
     public void showToast(String str) {
-        if (!TextUtils.isEmpty(str) && mPresenter.checkActivityState()) {
-            if (mPresenter.isMainThread()) {
+        if (!TextUtils.isEmpty(str) && checkActivityState()) {
+            if (isMainThread()) {
                 showToastSafe(str);
             } else {
                 runOnUiThread(() -> showToastSafe(str));
@@ -149,4 +148,11 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         }
     }
 
+    public boolean checkActivityState() {
+        return !isFinishing();
+    }
+
+    public boolean isMainThread() {
+        return getMainLooper().getThread().equals(Thread.currentThread());
+    }
 }

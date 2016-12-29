@@ -25,8 +25,8 @@ public class MainPresenterImp extends BasePresenterImp<IMainView> implements Mai
         super(activity, view);
     }
 
-    @Override
-    public void initData() {
+
+    public void test() {
         MainService httpService = RetrofitUtil.getInstance().createService(MainService.class);
         httpService.getMessage("MH201610131600002603")
                 .compose(TransformUtils.defaultSchedulers())
@@ -43,4 +43,5 @@ public class MainPresenterImp extends BasePresenterImp<IMainView> implements Mai
 
                 });
     }
+
 }

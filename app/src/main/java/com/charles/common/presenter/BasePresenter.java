@@ -7,11 +7,7 @@ package com.charles.common.presenter;
  * @since 16/12/27
  */
 public interface BasePresenter {
-    boolean checkActivityState();
-
-    boolean isMainThread();
 
     void sendMessage(Object event);
 
-    void initData();
 }

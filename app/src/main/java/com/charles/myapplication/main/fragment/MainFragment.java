@@ -28,6 +28,11 @@ public class MainFragment extends BaseFragment<MainPresenterImp> implements IMai
     LinearLayout activityMain;
 
     @Override
+    protected void initData() {
+        mPresenter.test();
+    }
+
+    @Override
     protected void initView() {
 
     }

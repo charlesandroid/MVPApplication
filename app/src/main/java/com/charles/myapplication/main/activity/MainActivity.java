@@ -30,6 +30,7 @@ public class MainActivity extends BaseActivity<MainPresenterImp> implements IMai
     protected void initView() {
         MainFragment myFragment = new MainFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fl, myFragment).commit();
+        mPresenter.test();
 
     }
 
