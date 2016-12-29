@@ -1,5 +1,6 @@
 package com.charles.common.view;
 
+import android.app.Application;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +8,6 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.charles.common.BaseApplication;
 import com.charles.common.presenter.BasePresenter;
 import com.charles.myapplication.BuildConfig;
 
@@ -27,7 +27,7 @@ import butterknife.Unbinder;
 public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements IBaseView {
 
     private final String TAG = getClass().getSimpleName();
-    protected BaseApplication mApplication;
+    protected Application mApplication;
     protected BaseActivity mActivity;
     protected P mPresenter;
     protected Toast mToast;
@@ -37,7 +37,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     final protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mActivity = this;
-        mApplication = (BaseApplication) getApplication();
+        mApplication = getApplication();
         initPresenter();
         setContentView(getContetView());
         mUnbind = ButterKnife.bind(this);
