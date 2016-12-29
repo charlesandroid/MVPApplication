@@ -1,4 +1,4 @@
-package com.charles.myapplication.presenter;
+package com.charles.myapplication;
 
 import com.charles.common.network.DefaultData;
 import com.charles.common.network.Response;
@@ -13,7 +13,7 @@ import com.charles.myapplication.IMainView;
 import com.charles.myapplication.MainPresenter;
 
 /**
- * com.charles.myapplication.presenter.MainPresenterImp
+ * com.charles.myapplication.MainPresenterImp
  *
  * @author Just.T
  * @since 16/12/27

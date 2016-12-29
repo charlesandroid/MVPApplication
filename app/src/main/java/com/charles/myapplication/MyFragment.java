@@ -5,7 +5,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.charles.common.view.BaseFragment;
-import com.charles.myapplication.presenter.MainPresenterImp;
 
 import butterknife.BindView;
 

@@ -1,4 +1,4 @@
-package com.charles.myapplication.activity;
+package com.charles.myapplication;
 
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -7,7 +7,7 @@ import com.charles.common.view.BaseActivity;
 import com.charles.myapplication.IMainView;
 import com.charles.myapplication.MyFragment;
 import com.charles.myapplication.R;
-import com.charles.myapplication.presenter.MainPresenterImp;
+import com.charles.myapplication.MainPresenterImp;
 
 import butterknife.BindView;
 
