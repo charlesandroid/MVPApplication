@@ -14,7 +14,7 @@ import org.greenrobot.eventbus.EventBus;
  * @author Just.T
  * @since 16/12/27
  */
-public class BasePresenterImp<V extends IBaseView> implements BasePresenter {
+public abstract class BasePresenterImp<V extends IBaseView> implements BasePresenter {
     private final String TAG = getClass().getSimpleName();
     protected BaseActivity activity;
     protected V view;

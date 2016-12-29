@@ -42,7 +42,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         setContentView(getContetView());
         mUnbind = ButterKnife.bind(this);
         initView();
-        initData();
+        mPresenter.initData();
     }
 
 
@@ -64,8 +64,6 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
             e.printStackTrace();
         }
     }
-
-    protected abstract void initData();
 
     protected abstract void initView();
 

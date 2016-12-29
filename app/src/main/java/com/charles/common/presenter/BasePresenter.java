@@ -12,4 +12,6 @@ public interface BasePresenter {
     boolean isMainThread();
 
     void sendMessage(Object event);
+
+    void initData();
 }

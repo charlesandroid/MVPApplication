@@ -1,16 +1,16 @@
 package com.charles.myapplication.main.presenter;
 
-import com.charles.myapplication.network.DefaultData;
-import com.charles.myapplication.network.Response;
-import com.charles.myapplication.network.ResponseSubscriber;
 import com.charles.common.network.RetrofitUtil;
 import com.charles.common.network.TransformUtils;
 import com.charles.common.presenter.BasePresenterImp;
 import com.charles.common.view.BaseActivity;
-import com.charles.myapplication.main.bean.User;
 import com.charles.myapplication.main.IMainView;
 import com.charles.myapplication.main.MainPresenter;
 import com.charles.myapplication.main.MainService;
+import com.charles.myapplication.main.bean.User;
+import com.charles.myapplication.network.DefaultData;
+import com.charles.myapplication.network.Response;
+import com.charles.myapplication.network.ResponseSubscriber;
 
 /**
  * com.charles.myapplication.main.presenter.MainPresenterImp
@@ -25,9 +25,8 @@ public class MainPresenterImp extends BasePresenterImp<IMainView> implements Mai
         super(activity, view);
     }
 
-    public void testRetrofit() {
-
-
+    @Override
+    public void initData() {
         MainService httpService = RetrofitUtil.getInstance().createService(MainService.class);
         httpService.getMessage("MH201610131600002603")
                 .compose(TransformUtils.defaultSchedulers())
@@ -43,7 +42,5 @@ public class MainPresenterImp extends BasePresenterImp<IMainView> implements Mai
                     }
 
                 });
-
     }
-
 }

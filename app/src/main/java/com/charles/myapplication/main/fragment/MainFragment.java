@@ -33,11 +33,6 @@ public class MainFragment extends BaseFragment<MainPresenterImp> implements IMai
     }
 
     @Override
-    protected void initData() {
-        mPresenter.testRetrofit();
-    }
-
-    @Override
     protected int getContetView() {
         return R.layout.activity_main;
     }
