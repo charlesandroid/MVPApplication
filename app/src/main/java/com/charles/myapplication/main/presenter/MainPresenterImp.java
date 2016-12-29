@@ -1,4 +1,4 @@
-package com.charles.myapplication;
+package com.charles.myapplication.main.presenter;
 
 import com.charles.common.network.DefaultData;
 import com.charles.common.network.Response;
@@ -7,13 +7,13 @@ import com.charles.common.network.RetrofitUtil;
 import com.charles.common.network.TransformUtils;
 import com.charles.common.presenter.BasePresenterImp;
 import com.charles.common.view.BaseActivity;
-import com.charles.myapplication.Bean;
-import com.charles.myapplication.HttpService;
-import com.charles.myapplication.IMainView;
-import com.charles.myapplication.MainPresenter;
+import com.charles.myapplication.main.bean.User;
+import com.charles.myapplication.main.IMainView;
+import com.charles.myapplication.main.MainPresenter;
+import com.charles.myapplication.main.MainService;
 
 /**
- * com.charles.myapplication.MainPresenterImp
+ * com.charles.myapplication.main.presenter.MainPresenterImp
  *
  * @author Just.T
  * @since 16/12/27
@@ -28,12 +28,12 @@ public class MainPresenterImp extends BasePresenterImp<IMainView> implements Mai
     public void testRetrofit() {
 
 
-        HttpService httpService = RetrofitUtil.getInstance().createService(HttpService.class);
+        MainService httpService = RetrofitUtil.getInstance().createService(MainService.class);
         httpService.getMessage("MH201610131600002603")
                 .compose(TransformUtils.defaultSchedulers())
-                .subscribe(new ResponseSubscriber<DefaultData<Bean>>() {
+                .subscribe(new ResponseSubscriber<DefaultData<User>>() {
                     @Override
-                    public void success(DefaultData<Bean> t) {
+                    public void success(DefaultData<User> t) {
                         view.setText(t.response.address);
                     }
 

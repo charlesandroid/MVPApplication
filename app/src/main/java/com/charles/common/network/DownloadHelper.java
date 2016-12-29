@@ -1,7 +1,6 @@
 package com.charles.common.network;
 
 import com.charles.common.factory.HttpClientFactory;
-import com.charles.myapplication.HttpService;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -66,7 +65,7 @@ public class DownloadHelper {
      */
     public void download(String url, String filePath, ProgressInterceptor.ProgressListener listener, DownloadListener downloadListener) {
         OkHttpClient client = listener == null ? HttpClientFactory.defaultClient() : HttpClientFactory.downloadClient(listener);
-        RetrofitUtil.getInstance().createService(client, HttpService.class)
+        RetrofitUtil.getInstance().createService(client, BaseHttpService.class)
                 .downloadFile(url)
                 .flatMap(responseBody -> convertFile(responseBody, filePath))
                 .compose(TransformUtils.defaultSchedulers())

@@ -1,20 +1,23 @@
-package com.charles.myapplication;
+package com.charles.myapplication.main.fragment;
 
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.charles.common.view.BaseFragment;
+import com.charles.myapplication.R;
+import com.charles.myapplication.main.IMainView;
+import com.charles.myapplication.main.presenter.MainPresenterImp;
 
 import butterknife.BindView;
 
 /**
- * com.charles.myapplication.MyFragment
+ * com.charles.myapplication.main.fragment.MainFragment
  *
  * @author Just.T
  * @since 16/12/28
  */
-public class MyFragment extends BaseFragment<MainPresenterImp> implements IMainView {
+public class MainFragment extends BaseFragment<MainPresenterImp> implements IMainView {
 
 
     @BindView(R.id.tv_text)

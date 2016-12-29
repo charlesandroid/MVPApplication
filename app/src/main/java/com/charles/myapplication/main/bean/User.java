@@ -1,6 +1,6 @@
-package com.charles.myapplication;
+package com.charles.myapplication.main.bean;
 
-public class Bean {
+public class User {
     public String address;
     public String agentPhone;
     public String agentName;
@@ -33,7 +33,7 @@ public class Bean {
 
     @Override
     public String toString() {
-        return "Bean{" +
+        return "User{" +
                 "address='" + address + '\'' +
                 ", agentPhone='" + agentPhone + '\'' +
                 ", agentName='" + agentName + '\'' +

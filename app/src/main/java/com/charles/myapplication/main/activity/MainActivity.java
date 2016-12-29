@@ -1,13 +1,13 @@
-package com.charles.myapplication;
+package com.charles.myapplication.main.activity;
 
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.charles.common.view.BaseActivity;
-import com.charles.myapplication.IMainView;
-import com.charles.myapplication.MyFragment;
 import com.charles.myapplication.R;
-import com.charles.myapplication.MainPresenterImp;
+import com.charles.myapplication.main.IMainView;
+import com.charles.myapplication.main.fragment.MainFragment;
+import com.charles.myapplication.main.presenter.MainPresenterImp;
 
 import butterknife.BindView;
 
@@ -32,7 +32,7 @@ public class MainActivity extends BaseActivity<MainPresenterImp> implements IMai
 
     @Override
     protected void initView() {
-        MyFragment myFragment = new MyFragment();
+        MainFragment myFragment = new MainFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fl, myFragment).commit();
         mPresenter.testRetrofit();
 

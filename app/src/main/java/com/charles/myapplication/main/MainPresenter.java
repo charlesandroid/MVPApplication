@@ -1,9 +1,9 @@
-package com.charles.myapplication;
+package com.charles.myapplication.main;
 
 import com.charles.common.presenter.BasePresenter;
 
 /**
- * com.charles.myapplication.MainPresenter
+ * com.charles.myapplication.main.MainPresenter
  *
  * @author Just.T
  * @since 16/12/27
