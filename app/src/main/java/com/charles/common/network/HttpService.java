@@ -6,10 +6,12 @@ import retrofit2.http.Url;
 import rx.Observable;
 
 /**
- * Created by Just.T on 16/12/9.
+ * com.charles.common.network.HttpService
+ *
+ * @author Just.T
+ * @since 16/12/28
  */
-
-public interface BaseHttpService {
+public interface HttpService {
 
     @GET
     Observable<ResponseBody> downloadFile(@Url String url);

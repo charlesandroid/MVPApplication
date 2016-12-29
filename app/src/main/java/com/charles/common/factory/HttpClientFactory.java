@@ -1,6 +1,7 @@
 package com.charles.common.factory;
 
 import com.charles.common.network.ProgressInterceptor;
+import com.charles.common.network.ProgressListener;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +29,7 @@ public class HttpClientFactory {
         return builder.build();
     }
 
-    public static OkHttpClient downloadClient(ProgressInterceptor.ProgressListener listener) {
+    public static OkHttpClient downloadClient(ProgressListener listener) {
         builder.networkInterceptors().add(new ProgressInterceptor(listener));
         return builder.build();
     }

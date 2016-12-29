@@ -18,13 +18,14 @@ import okio.Source;
  */
 public class ProgressResponseBody extends ResponseBody {
     private final ResponseBody responseBody;
-    private final ProgressInterceptor.ProgressListener progressListener;
+    private final ProgressListener progressListener;
     private BufferedSource bufferedSource;
 
-    public ProgressResponseBody(ResponseBody responseBody, ProgressInterceptor.ProgressListener progressListener) {
+    public ProgressResponseBody(ResponseBody responseBody, ProgressListener progressListener) {
         this.responseBody = responseBody;
         this.progressListener = progressListener;
     }
+
 
 
 

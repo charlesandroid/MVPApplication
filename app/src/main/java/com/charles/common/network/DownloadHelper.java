@@ -22,6 +22,9 @@ import rx.Subscriber;
  */
 public class DownloadHelper {
 
+    public static final int SUCCESS = 0;
+    public static final int ERROR = -1;
+
     private DownloadHelper() {
     }
 
@@ -63,9 +66,9 @@ public class DownloadHelper {
      * @param listener
      * @param downloadListener
      */
-    public void download(String url, String filePath, ProgressInterceptor.ProgressListener listener, DownloadListener downloadListener) {
+    public void download(String url, String filePath, ProgressListener listener, DownloadListener downloadListener) {
         OkHttpClient client = listener == null ? HttpClientFactory.defaultClient() : HttpClientFactory.downloadClient(listener);
-        RetrofitUtil.getInstance().createService(client, BaseHttpService.class)
+        RetrofitUtil.getInstance().createService(client, HttpService.class)
                 .downloadFile(url)
                 .flatMap(responseBody -> convertFile(responseBody, filePath))
                 .compose(TransformUtils.defaultSchedulers())
@@ -78,13 +81,18 @@ public class DownloadHelper {
                     @Override
                     public void onError(Throwable e) {
                         if (downloadListener != null)
-                            downloadListener.onDownload(-1);
+                            downloadListener.onDownload(ERROR);
                     }
 
                     @Override
                     public void onNext(File file) {
-                        if (downloadListener != null && file != null)
-                            downloadListener.onDownload(0);
+                        if (downloadListener != null) {
+                            if (file != null) {
+                                downloadListener.onDownload(SUCCESS);
+                            } else {
+                                downloadListener.onDownload(ERROR);
+                            }
+                        }
                     }
                 });
 
@@ -102,42 +110,43 @@ public class DownloadHelper {
      * @return
      */
     private Observable<File> convertFile(ResponseBody body, String absFileName) {
-        File file = null;
+        File file = new File(absFileName);
+        InputStream inputStream = null;
+        OutputStream outputStream = null;
         try {
-            // todo change the file location/name according to your needs
-            file = new File(absFileName);
-            InputStream inputStream = null;
-            OutputStream outputStream = null;
+            byte[] fileReader = new byte[4096];
 
-            try {
-                byte[] fileReader = new byte[4096];
+            inputStream = body.byteStream();
+            outputStream = new FileOutputStream(file);
 
-                inputStream = body.byteStream();
-                outputStream = new FileOutputStream(file);
+            while (true) {
+                int read = inputStream.read(fileReader);
 
-                while (true) {
-                    int read = inputStream.read(fileReader);
-
-                    if (read == -1) {
-                        break;
-                    }
-                    outputStream.write(fileReader, 0, read);
+                if (read == -1) {
+                    break;
                 }
-                outputStream.flush();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            } finally {
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-
-                if (outputStream != null) {
-                    outputStream.close();
-                }
+                outputStream.write(fileReader, 0, read);
             }
+            outputStream.flush();
+
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            if (outputStream != null) {
+                try {
+                    outputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
         return Observable.just(file);
     }
