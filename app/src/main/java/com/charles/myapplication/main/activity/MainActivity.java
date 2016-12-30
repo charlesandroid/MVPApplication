@@ -1,9 +1,9 @@
 package com.charles.myapplication.main.activity;
 
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import com.charles.common.manager.TakePhotoManager;
 import com.charles.common.view.BaseActivity;
 import com.charles.myapplication.R;
 import com.charles.myapplication.main.IMainView;
@@ -31,14 +31,8 @@ public class MainActivity extends BaseActivity<MainPresenterImp> implements IMai
     protected void initView() {
         MainFragment myFragment = new MainFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fl, myFragment).commit();
-        log("!!!!!!!!!!!!!!!!!!");
         mPresenter.test();
-        tvText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showToast("!!!!!!!");
-            }
-        });
+        tvText.setOnClickListener(v -> TakePhotoManager.getInstance().openAlbum(mActivity, path -> showToast(path)));
 
     }
 
