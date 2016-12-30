@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import com.charles.common.factory.IntentFactory;
-
 public class BridgeActivity extends Activity {
 
 
@@ -21,23 +19,14 @@ public class BridgeActivity extends Activity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         String imagePath = "";
-        switch (requestCode) {
-            case IntentFactory.CAMERA:
-                if (resultCode == RESULT_OK && data != null) {
-                    Uri uri = data.getData();
-                    imagePath = CompressPicUtils.getImageAbsolutePath(this,
-                            uri);
-                }
-                break;
-            case IntentFactory.ALBUM:
-                if (resultCode == RESULT_OK && data != null) {
-                    Uri uri = data.getData();
-                    imagePath = CompressPicUtils.getImageAbsolutePath(this,
-                            uri);
-                }
-                break;
+        if (resultCode == RESULT_OK && data != null) {
+            Uri uri = data.getData();
+            imagePath = CompressPicUtils.getImageAbsolutePath(this,
+                    uri);
         }
         TakePhotoManager.onResult.onResult(imagePath);
+        TakePhotoManager.onResult = null;
+        TakePhotoManager.bridgeIntent = null;
         finish();
     }
 }

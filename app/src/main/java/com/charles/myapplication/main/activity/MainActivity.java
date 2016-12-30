@@ -34,6 +34,7 @@ public class MainActivity extends BaseActivity<MainPresenterImp> implements IMai
         mPresenter.test();
         tvText.setOnClickListener(v -> TakePhotoManager.getInstance().openAlbum(mActivity, path -> showToast(path)));
 
+
     }
 
     @Override
