@@ -32,7 +32,7 @@ public class MainActivity extends BaseActivity<MainPresenterImp> implements IMai
         MainFragment myFragment = new MainFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fl, myFragment).commit();
         mPresenter.test();
-        tvText.setOnClickListener(v -> TakePhotoManager.getInstance().openAlbum(mActivity, path -> showToast(path)));
+        tvText.setOnClickListener(v -> TakePhotoManager.getInstance().openCamera(mActivity, path -> log(path)));
 
 
     }
