@@ -9,5 +9,5 @@ import com.charles.common.view.IBaseView;
  * @since 16/12/27
  */
 public interface IMainView extends IBaseView {
-    void setText(String address);
+    void setText(String text);
 }

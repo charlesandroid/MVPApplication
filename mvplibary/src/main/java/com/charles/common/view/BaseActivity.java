@@ -5,11 +5,7 @@ import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
 import com.charles.common.presenter.BasePresenter;
-<<<<<<< HEAD:mvplibary/src/main/java/com/charles/common/view/BaseActivity.java
 import com.charles.common.presenter.BasePresenterImp;
-=======
-import com.charles.myapplication.BuildConfig;
->>>>>>> parent of d40d236... no message:app/src/main/java/com/charles/common/view/BaseActivity.java
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;
@@ -52,7 +48,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends FragmentActi
             mPresenter = (P) constructor.newInstance(mActivity, this);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            mPresenter = (P) new BasePresenterImp(mActivity, this);
         }
     }
 
@@ -60,15 +56,8 @@ public abstract class BaseActivity<P extends BasePresenter> extends FragmentActi
 
     protected abstract int getContetView();
 
-<<<<<<< HEAD:mvplibary/src/main/java/com/charles/common/view/BaseActivity.java
     public void log(String log) {
         Log.d(TAG, log);
-=======
-    protected void log(String log) {
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, log);
-        }
->>>>>>> parent of d40d236... no message:app/src/main/java/com/charles/common/view/BaseActivity.java
     }
 
 }

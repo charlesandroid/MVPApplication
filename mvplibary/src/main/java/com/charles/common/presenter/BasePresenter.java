@@ -8,4 +8,5 @@ package com.charles.common.presenter;
  */
 public interface BasePresenter {
 
+    void log(String log);
 }
