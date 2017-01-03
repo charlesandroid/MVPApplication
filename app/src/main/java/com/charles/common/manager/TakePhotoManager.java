@@ -5,8 +5,6 @@ import android.content.Intent;
 
 import com.charles.common.factory.IntentFactory;
 
-import java.io.Serializable;
-
 /**
  * com.charles.common.manager.TakePhotoManager
  *
@@ -48,7 +46,7 @@ public class TakePhotoManager {
     }
 
 
-    public interface OnResult extends Serializable {
+    public interface OnResult{
         void onResult(String path);
     }
 
