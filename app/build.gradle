@@ -1,33 +1,15 @@
 apply plugin: 'com.android.application'
-apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
     defaultConfig {
-        applicationId "com.charles.myapplication"
+        applicationId "com.charles.common"
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            buildConfigField "String", "BASE_URL", "\"http://10.143.117.20:9999/myfang/\""
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        debug {
-            minifyEnabled false
-            buildConfigField "String", "BASE_URL", "\"http://10.143.117.20:9999/myfang/\""
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -35,17 +17,5 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:23.0.1'
     testCompile 'junit:junit:4.12'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'io.reactivex:rxjava:1.2.3'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    compile 'com.trello:rxlifecycle:1.0'
-    compile 'com.trello:rxlifecycle-components:1.0'
-    compile 'com.google.guava:guava:20.0'
-    compile 'com.android.support:recyclerview-v7:23.0.1'
-    compile 'com.zhy:base-rvadapter:3.0.3'
-    compile 'com.jakewharton:butterknife:8.0.1'
-    compile 'org.greenrobot:eventbus:3.0.0'
-    apt 'com.jakewharton:butterknife-compiler:8.0.1'
 
 }

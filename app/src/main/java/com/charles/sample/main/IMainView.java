@@ -1,9 +1,9 @@
-package com.charles.myapplication.main;
+package com.charles.sample.main;
 
 import com.charles.common.view.IBaseView;
 
 /**
- * com.charles.myapplication.main.IMainView
+ * IMainView
  *
  * @author Just.T
  * @since 16/12/27

@@ -1,7 +1,7 @@
-package com.charles.myapplication.main;
+package com.charles.sample.main;
 
 /**
- * com.charles.myapplication.main.MainPresenter
+ * MainPresenter
  *
  * @author Just.T
  * @since 16/12/27

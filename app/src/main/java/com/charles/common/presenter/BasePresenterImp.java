@@ -6,8 +6,6 @@ import com.charles.common.view.BaseActivity;
 import com.charles.common.view.IBaseView;
 import com.charles.myapplication.BuildConfig;
 
-import org.greenrobot.eventbus.EventBus;
-
 /**
  * com.charles.common.presenter.BasePresenterImp
  *
@@ -24,11 +22,6 @@ public abstract class BasePresenterImp<V extends IBaseView> implements BasePrese
         this.view = view;
     }
 
-
-    @Override
-    public void sendMessage(Object event) {
-        EventBus.getDefault().post(event);
-    }
 
     protected void log(String log) {
         if (BuildConfig.DEBUG) {
