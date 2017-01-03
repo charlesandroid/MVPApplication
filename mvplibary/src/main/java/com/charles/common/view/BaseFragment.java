@@ -3,6 +3,7 @@ package com.charles.common.view;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +68,10 @@ public abstract class BaseFragment<P extends BasePresenter> extends Fragment imp
         init();
     }
 
+    @Override
+    public void log(String log) {
+        Log.d(TAG, log);
+    }
 
     protected abstract void init();
 
