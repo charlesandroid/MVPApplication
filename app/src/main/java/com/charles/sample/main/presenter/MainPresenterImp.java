@@ -21,7 +21,7 @@ public class MainPresenterImp extends BasePresenterImp<IMainView> implements Mai
 
     public void test() {
         log("----------test---------");
-        view.setText("hello world");
+        view.setText("MainPresenterImp");
 
     }
 

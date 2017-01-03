@@ -12,7 +12,7 @@ import com.charles.myapplication.BuildConfig;
  * @author Just.T
  * @since 16/12/27
  */
-public abstract class BasePresenterImp<V extends IBaseView> implements BasePresenter {
+public class BasePresenterImp<V extends IBaseView> implements BasePresenter {
     private final String TAG = getClass().getSimpleName();
     protected BaseActivity activity;
     protected V view;
@@ -22,8 +22,7 @@ public abstract class BasePresenterImp<V extends IBaseView> implements BasePrese
         this.view = view;
     }
 
-
-    protected void log(String log) {
+    public void log(String log) {
         if (BuildConfig.DEBUG) {
             Log.d(TAG, log);
         }

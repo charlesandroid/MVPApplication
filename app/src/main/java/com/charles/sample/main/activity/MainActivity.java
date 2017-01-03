@@ -1,28 +1,28 @@
 package com.charles.sample.main.activity;
 
-import android.widget.TextView;
+import android.content.Intent;
+import android.view.View;
 
 import com.charles.common.view.BaseActivity;
 import com.charles.myapplication.R;
-import com.charles.sample.main.IMainView;
-import com.charles.sample.main.presenter.MainPresenterImp;
 
-public class MainActivity extends BaseActivity<MainPresenterImp> implements IMainView {
-
-
-    private TextView textView;
-
-    @Override
-    public void setText(String text) {
-        textView.setText(text);
-    }
+public class MainActivity extends BaseActivity {
 
 
     @Override
     protected void init() {
-        textView = (TextView) findViewById(R.id.tv_text);
-        mPresenter.test();
 
+    }
+
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_1:
+                startActivity(new Intent(mActivity, MVPActivity.class));
+                break;
+            case R.id.btn_2:
+                startActivity(new Intent(mActivity, MVCActivity.class));
+                break;
+        }
     }
 
     @Override

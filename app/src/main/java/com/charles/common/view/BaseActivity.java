@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.charles.common.presenter.BasePresenter;
+import com.charles.common.presenter.BasePresenterImp;
 import com.charles.myapplication.BuildConfig;
 
 import java.lang.reflect.Constructor;
@@ -48,7 +49,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
             mPresenter = (P) constructor.newInstance(mActivity, this);
 
         } catch (Exception e) {
-            e.printStackTrace();
+            mPresenter = (P) new BasePresenterImp(mActivity, this);
         }
     }
 
@@ -56,7 +57,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
 
     protected abstract int getContetView();
 
-    protected void log(String log) {
+    public void log(String log) {
         if (BuildConfig.DEBUG) {
             Log.d(TAG, log);
         }

@@ -7,5 +7,5 @@ package com.charles.common.view;
  * @since 16/12/27
  */
 public interface IBaseView {
-
+    void log(String log);
 }
