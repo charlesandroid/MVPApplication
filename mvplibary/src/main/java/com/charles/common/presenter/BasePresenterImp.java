@@ -11,7 +11,7 @@ import com.charles.common.view.IBaseView;
  * @author Just.T
  * @since 16/12/27
  */
-public class BasePresenterImp<V extends IBaseView> implements BasePresenter {
+public abstract class BasePresenterImp<V extends IBaseView> implements BasePresenter {
     private final String TAG = getClass().getSimpleName();
     protected BaseActivity activity;
     protected V view;
@@ -21,7 +21,15 @@ public class BasePresenterImp<V extends IBaseView> implements BasePresenter {
         this.view = view;
     }
 
+<<<<<<< HEAD:mvplibary/src/main/java/com/charles/common/presenter/BasePresenterImp.java
     public void log(String log) {
         Log.d(TAG, log);
+=======
+
+    protected void log(String log) {
+        if (BuildConfig.DEBUG) {
+            Log.d(TAG, log);
+        }
+>>>>>>> parent of d40d236... no message:app/src/main/java/com/charles/common/presenter/BasePresenterImp.java
     }
 }
