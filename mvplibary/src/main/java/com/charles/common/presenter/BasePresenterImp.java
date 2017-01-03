@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.charles.common.view.BaseActivity;
 import com.charles.common.view.IBaseView;
-import com.charles.myapplication.BuildConfig;
 
 /**
  * com.charles.common.presenter.BasePresenterImp
@@ -23,8 +22,6 @@ public class BasePresenterImp<V extends IBaseView> implements BasePresenter {
     }
 
     public void log(String log) {
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, log);
-        }
+        Log.d(TAG, log);
     }
 }

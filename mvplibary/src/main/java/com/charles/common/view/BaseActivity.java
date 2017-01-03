@@ -1,12 +1,11 @@
 package com.charles.common.view;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
 import com.charles.common.presenter.BasePresenter;
 import com.charles.common.presenter.BasePresenterImp;
-import com.charles.myapplication.BuildConfig;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.ParameterizedType;
@@ -18,7 +17,7 @@ import java.lang.reflect.Type;
  * @author Just.T
  * @since 16/12/26
  */
-public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements IBaseView {
+public abstract class BaseActivity<P extends BasePresenter> extends FragmentActivity implements IBaseView {
 
     private final String TAG = getClass().getSimpleName();
     protected BaseActivity mActivity;
@@ -58,9 +57,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     protected abstract int getContetView();
 
     public void log(String log) {
-        if (BuildConfig.DEBUG) {
-            Log.d(TAG, log);
-        }
+        Log.d(TAG, log);
     }
 
 }
